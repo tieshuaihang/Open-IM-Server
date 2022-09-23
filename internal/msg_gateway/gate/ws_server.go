@@ -65,6 +65,7 @@ func (ws *WServer) wsHandler(w http.ResponseWriter, r *http.Request) {
 	if len(query["operationID"]) != 0 {
 		operationID = query["operationID"][0]
 	} else {
+		// 时间戳 + 随机值   长度19
 		operationID = utils.OperationIDGenerator()
 	}
 	log.Debug(operationID, utils.GetSelfFuncName(), " args: ", query)
